@@ -3,7 +3,7 @@ from greet import greet
 
 class TestGreet(unittest.TestCase):
     def test_valid_name(self):
-        self.assertEqual(greet("Asina"), "Hello, Asina!")
+        self.assertEqual(greet("Zara"), "Hello, Zara!")
 
     def test_empty_string(self):
         self.assertEqual(greet(""), "Hello, !")
