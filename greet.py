@@ -6,5 +6,4 @@ def greet(name):
     """
     Trigger CI
     """
-    return f"Hello, {name}!" +5
-
+    return f"Hello, {name}!"
