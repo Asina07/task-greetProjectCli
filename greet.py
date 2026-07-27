@@ -4,6 +4,6 @@ This module provides greeting functionality.
 
 def greet(name):
     """
-    Returns a customized greeting message.
+    Trigger CI
     """
     return f"Hello, {name}!"

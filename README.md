@@ -1,3 +1,5 @@
+[![Python Tests](https://github.com/Asina07/task-greetProjectCli/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/Asina07/task-greetProjectCli/actions/workflows/test.yml)
+
 # Greeter
 
 A simple Python project that provides a greeting module.
@@ -30,3 +32,19 @@ To run the unit tests, use the following command:
 python -m unittest test_greet.py
 ```
 
+
+
+## Pull Requests and CI
+
+When creating a pull request, GitHub Actions automatically runs the test workflow.
+The CI badge at the top of this README shows the current status of the latest workflow run.
+
+### How to create a pull request
+1. Create a new branch.
+2. Make your changes (e.g., add a new test case).
+3. Push the branch to GitHub.
+4. Open a pull request from your branch into `main`.
+5. Wait for the CI checks to complete.
+6. Review the results and merge if the tests pass.
+
+The CI badge will update to reflect the latest pipeline status.
