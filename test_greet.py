@@ -21,6 +21,10 @@ class TestGreet(unittest.TestCase):
         """Test greet with a name containing whitespace."""
         self.assertEqual(greet("   "), "Hello,    !")
 
+    def test_multiple_words(self):
+        """Test greet with a name consisting of multiple words."""
+        self.assertEqual(greet("Alice and Bob"), "Hello, Alice and Bob!")
+
 
 if __name__ == "__main__":
     unittest.main()
