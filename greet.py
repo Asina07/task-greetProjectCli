@@ -6,4 +6,5 @@ def greet(name):
     """
     Returns a customized greeting message.
     """
-    return f"Hello, {name}!"
+    return f"Hello, {name.strip()}!"
+   
