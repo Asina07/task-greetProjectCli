@@ -27,3 +27,7 @@ jobs:
     - name: Run pylint
       run: |
         pylint greet.py test_greet.py
+
+    - name: Run tests
+      run: |
+        python -m unittest discover
