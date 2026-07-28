@@ -39,7 +39,7 @@ jobs:
       with:
         server_address: ${{ secrets.SMTP_SERVER }}
         server_port: ${{ secrets.SMTP_PORT }}
-        secure: true
+        secure: false
         username: ${{ secrets.SMTP_USERNAME }}
         password: ${{ secrets.SMTP_PASSWORD }}
         subject: "CI Pipeline Failed"
@@ -49,4 +49,5 @@ jobs:
           Hello Asina,
           Your GitHub Actions workflow has failed.
           Please check the logs for more details.
+
 
