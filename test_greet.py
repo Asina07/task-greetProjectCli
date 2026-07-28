@@ -16,7 +16,7 @@ class TestGreet(unittest.TestCase):
     def test_empty_string(self):
         """Test greet with an empty string."""
         # self.assertEqual(greet(""), "Hello, !")
-        self.assertEqual(1, 2)
+        assert False
 
     def test_whitespace_name(self):
         """Test greet with a name containing whitespace."""
