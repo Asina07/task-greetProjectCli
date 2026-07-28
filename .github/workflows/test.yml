@@ -28,3 +28,19 @@ jobs:
     - name: Run pylint
       run: |
         python -m pylint .
+
+        - name: Send failure email
+      if: failure()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server: ${{ secrets.SMTP_SERVER }}
+        port: ${{ secrets.SMTP_PORT }}
+        username: ${{ secrets.SMTP_USERNAME }}
+        password: ${{ secrets.SMTP_PASSWORD }}
+        subject: "CI Pipeline Failed"
+        to: "asinaxabdulla@gmail.com"
+        from: "GitHub Actions asinaxabdulla@gmail.com"
+        body: |
+          Hello Asina,
+          Your GitHub Actions workflow has failed.
+          Please check the logs for more details.
