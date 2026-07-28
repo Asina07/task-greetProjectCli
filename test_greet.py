@@ -15,7 +15,8 @@ class TestGreet(unittest.TestCase):
 
     def test_empty_string(self):
         """Test greet with an empty string."""
-        self.assertEqual(greet(""), "Hello, !")
+        # self.assertEqual(greet(""), "Hello, !")
+        self.assertEqual(1, 2)
 
     def test_whitespace_name(self):
         """Test greet with a name containing whitespace."""
@@ -24,7 +25,7 @@ class TestGreet(unittest.TestCase):
     def test_multiple_words(self):
         """Test greet with a name consisting of multiple words."""
         self.assertEqual(greet("Alice and Bob"), "Hello, Alice and Bob!")
-        # self.assertEqual(1, 2)
+     
 
 
 
