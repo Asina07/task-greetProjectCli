@@ -48,3 +48,19 @@ The CI badge at the top of this README shows the current status of the latest wo
 6. Review the results and merge if the tests pass.
 
 The CI badge will update to reflect the latest pipeline status.
+
+
+
+## Manually Triggering the CI Workflow
+
+This project supports manual workflow runs using GitHub Actions.
+
+### How to Run the Workflow Manually
+
+1. Open the repository on GitHub.
+2. Click the **Actions** tab.
+3. Select the workflow named **Python Tests**.
+4. Click the **Run workflow** button on the right.
+5. Choose the branch (e.g., `main`) and click **Run workflow**.
+
+GitHub will start the workflow immediately. You can open the run to watch logs and verify that all tests pass.
