@@ -29,7 +29,7 @@ jobs:
       run: |
         python -m pylint .
 
-        - name: Send failure email
+    - name: Send failure email
       if: failure()
       uses: dawidd6/action-send-mail@v3
       with:
