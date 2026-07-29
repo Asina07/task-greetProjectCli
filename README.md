@@ -64,3 +64,25 @@ This project supports manual workflow runs using GitHub Actions.
 5. Choose the branch (e.g., `main`) and click **Run workflow**.
 
 GitHub will start the workflow immediately. You can open the run to watch logs and verify that all tests pass.
+
+Email SMTP Setup (Gmail)
+This project can send email notifications when the GitHub Actions workflow fails.
+To enable Gmail SMTP:
+
+1. Enable 2‑Step Verification
+Turn on 2‑Step Verification in your Google Account (required for App Passwords).
+
+2. Create an App Password
+Generate a Gmail App Password for SMTP.
+Use this password instead of your normal Gmail password.
+
+3. Add GitHub Secrets
+In Settings → Secrets → Actions, add:
+
+Code
+SMTP_SERVER = smtp.gmail.com
+SMTP_PORT = 587
+SMTP_USERNAME = your Gmail address
+SMTP_PASSWORD = your Gmail App Password
+4. Email Step in GitHub Actions
+workflow uses these secrets to send an email when the pipeline fails:
