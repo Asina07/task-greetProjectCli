@@ -33,22 +33,27 @@ jobs:
       run: |
         python -m unittest discover
 
-    - name: Send failure email
+    - name: Send email on failure
       if: failure()
       uses: dawidd6/action-send-mail@v3
       with:
-        server_address: ${{ secrets.SMTP_SERVER }}
-        server_port: ${{ secrets.SMTP_PORT }}
-        secure: false
+        server_address: smtp.gmail.com
+        server_port: 465
+        secure: true
         username: ${{ secrets.SMTP_USERNAME }}
         password: ${{ secrets.SMTP_PASSWORD }}
-        subject: "CI Pipeline Failed"
-        to: "asinaxabdulla@gmail.com"
-        from: "GitHub Actions <asinaxabdulla@gmail.com>"
+        subject: GitHub Actions Failed
+        to: ${{ secrets.TO_EMAIL }}
+        from: GitHub Actions
         body: |
-          Hello Asina,
-          Your GitHub Actions workflow has failed.
-          Please check the logs for more details.
+          The GitHub Actions workflow has failed.
+
+          Repository: ${{ github.repository }}
+          Branch: ${{ github.ref_name }}
+          Commit: ${{ github.sha }}
+
+          Workflow:
+          ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
 
 
