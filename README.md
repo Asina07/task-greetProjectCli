@@ -32,14 +32,13 @@ To run the unit tests, use the following command:
 python -m unittest test_greet.py
 ```
 
-
-
 ## Pull Requests and CI
 
 When creating a pull request, GitHub Actions automatically runs the test workflow.
 The CI badge at the top of this README shows the current status of the latest workflow run.
 
 ### How to create a pull request
+
 1. Create a new branch.
 2. Make your changes (e.g., add a new test case).
 3. Push the branch to GitHub.
@@ -48,8 +47,6 @@ The CI badge at the top of this README shows the current status of the latest wo
 6. Review the results and merge if the tests pass.
 
 The CI badge will update to reflect the latest pipeline status.
-
-
 
 ## Manually Triggering the CI Workflow
 
@@ -70,19 +67,48 @@ This project can send email notifications when the GitHub Actions workflow fails
 To enable Gmail SMTP:
 
 1. Enable 2‑Step Verification
-Turn on 2‑Step Verification in your Google Account (required for App Passwords).
+   Turn on 2‑Step Verification in your Google Account (required for App Passwords).
 
 2. Create an App Password
-Generate a Gmail App Password for SMTP.
-Use this password instead of your normal Gmail password.
+   Generate a Gmail App Password for SMTP.
+   Use this password instead of your normal Gmail password.
 
 3. Add GitHub Secrets
-In Settings → Secrets → Actions, add:
+   In Settings → Secrets → Actions, add:
 
 Code
 SMTP_SERVER = smtp.gmail.com
 SMTP_PORT = 587
 SMTP_USERNAME = your Gmail address
-SMTP_PASSWORD = your Gmail App Password
-4. Email Step in GitHub Actions
+SMTP_PASSWORD = your Gmail App Password 4. Email Step in GitHub Actions
 workflow uses these secrets to send an email when the pipeline fails:
+
+
+
+## Store Test Output as an Artifact
+
+This CI pipeline saves the test output as an artifact so it can be downloaded and used for debugging.
+
+### What this assignment does
+- Runs the unit tests in verbose mode.
+- Stores the test results in a file named `test-output.txt`.
+- Uploads that file as an artifact using `actions/upload-artifact`.
+- Allows you to download the test output from GitHub Actions after the workflow finishes.
+
+### Why this is added
+Artifacts make debugging easier because you can view the full test output without scrolling through long GitHub logs.  
+If a test fails, you can download the artifact and inspect the exact failure details.
+
+### Code added to `.github/workflows/test.yml`
+
+```yaml
+- name: Run tests and save output
+  run: |
+    python -m unittest -v > test-output.txt
+
+- name: Upload test output artifact
+  uses: actions/upload-artifact@v4
+  with:
+    name: test-output
+    path: test-output.txt
+

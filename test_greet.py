@@ -24,7 +24,6 @@ class TestGreet(unittest.TestCase):
     def test_multiple_words(self):
         """Test greet with a name consisting of multiple words."""
         self.assertEqual(greet("Alice and Bob"), "Hello, Alice and Bob!")
-        assert False
 
 if __name__ == "__main__":
     unittest.main()
