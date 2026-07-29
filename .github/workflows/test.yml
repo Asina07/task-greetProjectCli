@@ -33,19 +33,25 @@ jobs:
       run: |
         python -m unittest discover
 
-    # - name: Send email on failure
-    #   if: failure()
-    #   uses: dawidd6/action-send-mail@v3
-    #   with:
-    #     server_address: ${{ secrets.SMTP_SERVER }}
-    #     server_port: ${{ secrets.SMTP_PORT }}
-    #     username: ${{ secrets.SMTP_USERNAME }}
-    #     password: ${{ secrets.SMTP_PASSWORD }}
-    #     subject: "GitHub Actions Failure"
-    #     to: "asinaxabdulla@gmail.com"
-    #     from: "asinaxabdulla@gmail.com"
-    #     secure: false
-    #     body: "The latest GitHub Actions run did not complete successfully. Please check the workflow logs for more details"
+    - name: Send email on failure
+      if: failure()
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: ${{ secrets.SMTP_SERVER }}
+        server_port: ${{ secrets.SMTP_PORT }}
+        username: ${{ secrets.SMTP_USERNAME }}
+        password: ${{ secrets.SMTP_PASSWORD }}
+        subject: "GitHub Actions Failure"
+        to: "asinaxabdulla@gmail.com"
+        from: "asinaxabdulla@gmail.com"
+        secure: false
+        body: "The latest GitHub Actions run did not complete successfully. Please check the workflow logs for more details"
 
-
-
+    - name: Run tests and save output
+      run: |
+        python -m unittest -v > test-output.txt
+    - name: Upload test output artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-output
+        path: test-output.txt
