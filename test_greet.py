@@ -18,10 +18,6 @@ class TestGreet(unittest.TestCase):
         """Test greet with an empty string."""
         self.assertEqual(greet(""), "Hello, !")
         
-    def test_fail(self):
-        """Intentional failing test to verify email notification."""
-        self.assertEqual(1, 2)
-
     def test_whitespace_name(self):
         """Test greet with a name containing whitespace."""
         self.assertEqual(greet("   "), "Hello,    !")
@@ -29,8 +25,6 @@ class TestGreet(unittest.TestCase):
     def test_multiple_words(self):
         """Test greet with a name consisting of multiple words."""
         self.assertEqual(greet("Alice and Bob"), "Hello, Alice and Bob!")
-     
-        assert false
     
 
 if __name__ == "__main__":
