@@ -13,7 +13,6 @@ class TestGreet(unittest.TestCase):
         """Test greet with a standard valid name."""
         self.assertEqual(greet("Zara"), "Hello, Zara!")
         
-
     def test_empty_string(self):
         """Test greet with an empty string."""
         self.assertEqual(greet(""), "Hello, !")
