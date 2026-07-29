@@ -39,21 +39,13 @@ jobs:
       with:
         server_address: ${{ secrets.SMTP_SERVER }}
         server_port: ${{ secrets.SMTP_PORT }}
-        secure: false
         username: ${{ secrets.SMTP_USERNAME }}
         password: ${{ secrets.SMTP_PASSWORD }}
-        subject: GitHub Actions Failed
-        to: ${{ secrets.TO_EMAIL }}
-        from: ${{ secrets.FROM_EMAIL }}
-        body: |
-          GitHub Actions workflow failed.
-
-          Repository: ${{ github.repository }}
-          Branch: ${{ github.ref_name }}
-          Commit: ${{ github.sha }}
-
-          Workflow:
-          ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        subject: "GitHub Actions Failure"
+        to: "asinaxabdulla@gmail.com"
+        from: "asinaxabdulla@gmail.com"
+        secure: false
+        body: "Your workflow failed."
 
 
 
