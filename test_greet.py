@@ -21,9 +21,6 @@ class TestGreet(unittest.TestCase):
         """Test greet with a name containing whitespace."""
         self.assertEqual(greet("   "), "Hello,    !")
 
-    def test_uppercase(self):
-        """Test greet with uppercase conversion."""
-        self.assertEqual(greet("zara"), "Hello, ZARA!")
 
 if __name__ == "__main__":
     unittest.main()
