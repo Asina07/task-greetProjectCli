@@ -1,6 +1,6 @@
 [![Python Tests](https://github.com/Asina07/task-greetProjectCli/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/Asina07/task-greetProjectCli/actions/workflows/test.yml)
 
-# Greeter
+# Greeter App
 
 A simple Python project that provides a greeting module.
 
