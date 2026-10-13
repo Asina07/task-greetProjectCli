@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     """Return greeting message."""
-    return greet("Asina")
+    return greet("Asi")
 
 # @app.route("/case/normal")
 # def case_normal():
